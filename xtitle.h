@@ -12,6 +12,7 @@ int default_screen;
 xcb_window_t root;
 bool running, visible;
 
+void print_usage();
 bool setup(void);
 wchar_t* expand_escapes(const wchar_t *src);
 void output_title(xcb_window_t win, wchar_t *format, bool escaped, int truncate);

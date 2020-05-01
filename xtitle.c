@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	while ((opt = getopt(argc, argv, "hvseif:t:")) != -1) {
 		switch (opt) {
 			case 'h':
-				printf("xtitle [-h|-v|-s|-e|-i|-f FORMAT|-t NUMBER] [WID ...]\n");
+				print_usage();
 				goto end;
 				break;
 			case 'v':
@@ -135,6 +135,26 @@ end:
 	free(ewmh);
 	free(format);
 	return ret;
+}
+
+void print_usage()
+{
+	printf("%s",
+		"Description:\n"
+		" Output title of WID(s) or focused window\n\n"
+		"Synopsis:\n"
+		" xtitle [-h|-v|-s|-e|-i|-f FORMAT|-t NUMBER] [WID ...]\n\n"
+		"Options:\n"
+		" -h         Print usage information to standard output and exit.\n"
+		" -v         Print version to standard output and exit.\n"
+		" -s         Snoop mode.\n"
+		" -e         Escape the following characters: ', \" and \\.\n"
+		" -i         Try to retrieve the title from the _NET_WM_VISIBLE_NAME atom.\n"
+		" -f FORMAT  Use the given printf-style format.\n"
+		"            Supported sequences are %s (for title), %u (for window id) and \\n.\n"
+		" -t NUMBER  Truncate the title after |NUMBER| characters,\n"
+		"            starting at the first (or the last if negative) character.\n"
+	);
 }
 
 bool setup(void)
@@ -331,3 +351,4 @@ void hold(int sig)
 		running = false;
 	}
 }
+

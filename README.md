@@ -5,7 +5,7 @@ If arguments are given, outputs the title of each arguments, otherwise outputs t
 	xtitle [-h|-v|-s|-e|-i|-f FORMAT|-t NUMBER] [WID ...]
 
 # Options
-- `-h` — Print the synopsis to standard output and exit.
+- `-h` — Print usage information to standard output and exit.
 - `-v` — Print the version to standard output and exit.
 - `-s` — Activate the *snoop* mode.
 - `-e` — Escape the following characters: ', " and \\.
